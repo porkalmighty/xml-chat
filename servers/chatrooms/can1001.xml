@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chatrooms>
+  <chatroom>
+    <id>can1001</id>
+    <name>Adai</name>
+    <messages>
+      <message memberId="001">
+        Hello there, Dio!
+      </message>
+      <message memberId="002">
+        kuristiiinaaaaa
+      </message>
+    </messages>
+  </chatroom>
+</chatrooms>

@@ -16,15 +16,85 @@ body {
 }
 
 .chatroom__list {
-  margin: 0 auto;
-  width: 400px;
+  width: 100%;
 }
 
 .channels {
   background-color: lightgreen;
-  padding: 30px;
+  padding: 10px 20px;
+  width: 400px;
+  display: inline-block;
+  vertical-align: top;
+  margin: 0 20px;
 }
 
 .channels:nth-child(odd) {
   background-color: lightblue;
+}
+
+.channels h2 {
+  margin: 0;
+}
+
+.channel__name {
+  padding: 0 20px 20px;
+}
+
+.channel-name{
+  display: block;
+  margin: 0 0 20px;
+}
+
+ul, ul ul {
+  list-style: none;
+  padding: 0;
+}
+
+.roomList {
+  background-color: #efefef;
+  width: 100%;
+  height: 80px;
+  padding: 20px;
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+.roomList a {
+  text-decoration: none;
+  color: #000;
+}
+
+.btnWrap {
+  float: right;
+}
+
+.server-type,
+.server-id {
+  display: block;
+}
+
+.chatInterface__window {
+  width: 100%;
+  height: 500px;
+  overflow-y: scroll;
+  background-color: #efefef;
+}
+
+.chatInterface__controls {
+  width: 100%;
+  height: 100%;
+}
+
+#chatArea, #sendBtn {
+  display: inline-block;
+  float: left;
+}
+
+#chatArea {
+  width: 90%;
+}
+
+#sendBtn {
+  width: 10%;
+  max-height: 100%;
 }

@@ -1,30 +1,57 @@
 <?php
-//load XML
-$chatServer = simplexml_load_file("servers/chatroomserver.xml");
+require_once 'header.php';
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+$chatId = "can1002";
+$chatName = "Bachika";
+$path = sprintf("servers/chatrooms/%s.xml", $chatId);
 
-echo "<h1>Welcome, User!</h1>";
-echo "<h2>Select a room:</h2>";
-foreach($chatServer as $k => $v)
+if(file_exists($path))
 {
-  echo "<section class='channels'>";
-  echo sprintf("<h2>%s Server</h2>", $v->attributes()->location);
-  echo "<ul>";
-  foreach ($v->xpath('.//channel/@name') as $channel => $name) {
-    echo "<li> Channel: " . $name;
-    echo "<ul>";
-    foreach ($v->xpath('.//chatroom') as $y => $z) {
-      echo sprintf('<li><button class="btnRoom" type="button" value="%s">%s | %s</button></li>', $z->attributes()->id, $z->roomName, $z->attributes()->type);
-    }
-    echo "</ul>";
-    echo "</li>";
-  }
-  echo "</ul>";
-  echo "</section>";
+  $chatRoom = simplexml_load_file($path);
 }
+else
+{
+  // create the chat room
+  $doc = new DOMDocument('1.0', 'utf-8');
+  $doc->preserveWhiteSpace = false;
+  $doc->formatOutput = true;
 
-// echo "<pre>";
-// var_dump($v);
-// echo "<pre>";
-// echo "<ul>";
-// echo sprintf("<li>%s</li>", $v->xpath('//roomName'));
-// echo "</ul>";
+  $root = $doc->createElement("chatrooms");
+  $chatroom = $doc->createElement("chatroom");
+  $id = $doc->createElement("id");
+  $name = $doc->createElement("name");
+  $messages = $doc->createElement("messages");
+
+  // add values to elemets
+  $id->nodeValue = $chatId;
+  $name->nodeValue = $chatName;
+
+  // append the elements to root
+  $chatroom->appendChild($id);
+  $chatroom->appendChild($name);
+  $chatroom->appendChild($messages);
+  $root->appendChild($chatroom);
+  $doc->appendChild($root);
+
+  // save the xml
+  if($doc->save($path))
+  {
+    $chatRoom = simplexml_load_file($path);
+  }
+  else
+  {
+    echo "failed";
+  }
+}
+?>
+<div class="chatInterface">
+  <div class="chatInterface__window"></div>
+  <div class="chatInterface__controls">
+    <form class="chatbox" action="" method="post">
+      <textarea name="chatArea" rows="8" cols="80" id="chatArea"></textarea>
+      <button type="submit" name="sendChat" id="sendBtn">Send</button>
+    </form>
+  </div>
+</div>
+<?php require_once 'footer.php'; ?>

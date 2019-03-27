@@ -1,43 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <servers>
-  <server location="Canada">
+  <server>
+    <location>Canada</location>
     <channels>
-      <channel name="canada01">
+      <channel>
+        <name>canada01</name>
         <chatrooms>
-          <chatroom id="1001" type="public" hasPassword="no">
-            <roomName>Adai</roomName>
+          <chatroom>
+            <id>can1001</id>
+            <type>public</type>
+            <hasPassword>no</hasPassword>
+            <name>Adai</name>
           </chatroom>
-          <chatroom id="1002" type="public" hasPassword="no">
-            <roomName>Bachika</roomName>
+          <chatroom>
+            <id>can1002</id>
+            <type>public</type>
+            <hasPassword>no</hasPassword>
+            <name>Bachika</name>
           </chatroom>
-          <chatroom id="1003" type="private" hasPassword="yes">
-            <roomName>Galactic Spiral Abyss</roomName>
+          <chatroom>
+            <id>can1003</id>
+            <type>private</type>
+            <hasPassword>no</hasPassword>
+            <name>Galactic Spiral Abyss</name>
           </chatroom>
-          <chatroom id="1004" type="public" hasPassword="no">
-            <roomName>Jeeha</roomName>
+        </chatrooms>
+      </channel>
+      <channel>
+        <name>canada02</name>
+        <chatrooms>
+          <chatroom>
+            <id>can2001</id>
+            <type>public</type>
+            <hasPassword>no</hasPassword>
+            <name>Jeeha</name>
           </chatroom>
-          <chatroom id="1005" type="public" hasPassword="no">
-            <roomName>Kamina</roomName>
+          <chatroom>
+            <id>can2002</id>
+            <type>public</type>
+            <hasPassword>no</hasPassword>
+            <name>Kamina</name>
           </chatroom>
-          <chatroom id="1006" type="public" hasPassword="no">
-            <roomName>Littner</roomName>
+          <chatroom>
+            <id>can2003</id>
+            <type>public</type>
+            <hasPassword>no</hasPassword>
+            <name>Littner</name>
           </chatroom>
-          <chatroom id="1007" type="private" hasPassword="yes">
-            <roomName>Teppelin</roomName>
+          <chatroom>
+            <id>can2004</id>
+            <type>private</type>
+            <hasPassword>yes</hasPassword>
+            <name>Teppelin</name>
           </chatroom>
         </chatrooms>
       </channel>
     </channels>
   </server>
-  <server location="United States">
+  <server>
+    <location>United States</location>
     <channels>
-      <channel name="us01">
+      <channel>
+        <name>us01</name>
         <chatrooms>
-          <chatroom id="1001" type="public">
-            <roomName>El Psy Congroo</roomName>
+          <chatroom>
+            <id>us1001</id>
+            <type>public</type>
+            <hasPassword>no</hasPassword>
+            <name>El Psy Congroo</name>
           </chatroom>
-          <chatroom id="1002" type="private">
-            <roomName>Operation Skuld</roomName>
+          <chatroom>
+            <id>us1002</id>
+            <type>public</type>
+            <hasPassword>no</hasPassword>
+            <name>Operation Skuld</name>
           </chatroom>
         </chatrooms>
       </channel>
