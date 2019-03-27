@@ -1,0 +1,30 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  background-color: lightyellow;
+}
+
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.chatroom__list {
+  margin: 0 auto;
+  width: 400px;
+}
+
+.channels {
+  background-color: lightgreen;
+  padding: 30px;
+}
+
+.channels:nth-child(odd) {
+  background-color: lightblue;
+}

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<servers>
+  <server location="Canada">
+    <channels>
+      <channel name="canada01">
+        <chatrooms>
+          <chatroom id="1001" type="public" hasPassword="no">
+            <roomName>Adai</roomName>
+          </chatroom>
+          <chatroom id="1002" type="public" hasPassword="no">
+            <roomName>Bachika</roomName>
+          </chatroom>
+          <chatroom id="1003" type="private" hasPassword="yes">
+            <roomName>Galactic Spiral Abyss</roomName>
+          </chatroom>
+          <chatroom id="1004" type="public" hasPassword="no">
+            <roomName>Jeeha</roomName>
+          </chatroom>
+          <chatroom id="1005" type="public" hasPassword="no">
+            <roomName>Kamina</roomName>
+          </chatroom>
+          <chatroom id="1006" type="public" hasPassword="no">
+            <roomName>Littner</roomName>
+          </chatroom>
+          <chatroom id="1007" type="private" hasPassword="yes">
+            <roomName>Teppelin</roomName>
+          </chatroom>
+        </chatrooms>
+      </channel>
+    </channels>
+  </server>
+  <server location="United States">
+    <channels>
+      <channel name="us01">
+        <chatrooms>
+          <chatroom id="1001" type="public">
+            <roomName>El Psy Congroo</roomName>
+          </chatroom>
+          <chatroom id="1002" type="private">
+            <roomName>Operation Skuld</roomName>
+          </chatroom>
+        </chatrooms>
+      </channel>
+    </channels>
+  </server>
+</servers>

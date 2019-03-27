@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chatrooms>
+  <chatroom id="1234456" type="public">
+    <title>El Psy Congroo</title>
+    <messages memberId="001">
+      <message>Supa haka</message>
+      <message>Hello there, Dio!</message>
+    </messages>
+    <messages memberId="002">
+      <message>kuristiiinaaaaa</message>
+      <message>muda muda muda</message>
+    </messages>
+  </chatroom>
+</chatrooms>
