@@ -1,6 +1,6 @@
 <?php
 require_once 'header.php';
-echo "<h1>Welcome, User!</h1>";
+echo sprintf("<h1>Welcome, %!</h1>", $_SESSION['user']);
 ?>
 <div class="chatroom">
   <div class="chatroom__list">

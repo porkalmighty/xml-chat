@@ -1,9 +1,9 @@
 <?php
 require_once 'header.php';
-$username = "JumpingSalad";
-$userId = 3;
 if(isset($_POST['roomId']) && isset($_POST['roomName']))
 {
+  $username = $_SESSION['user'];
+  $userId = $_SESSION['userid'];
   $chatId = $_POST['roomId'];
   $chatName = $_POST['roomName'];
   $file = sprintf("servers/chatrooms/%s.xml", $chatId);
