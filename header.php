@@ -1,3 +1,7 @@
+<?php
+session_start();
+require_once 'lib/functions.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>

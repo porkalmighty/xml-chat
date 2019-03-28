@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<chatrooms>
+  <chatroom>
+    <id>us1002</id>
+    <name>Operation Skuld</name>
+    <messages>
+      <message userid="3" username="JumpingSalad">operation skuld</message>
+      <message userid="3" username="JumpingSalad">El Psy Congroo</message>
+    </messages>
+  </chatroom>
+</chatrooms>

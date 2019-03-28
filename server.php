@@ -1,30 +1,37 @@
 <?php
-//load XML
-$chatServer = simplexml_load_file("servers/chatroomserver.xml");
-
+require_once 'header.php';
 echo "<h1>Welcome, User!</h1>";
-echo "<h2>Select a room:</h2>";
-foreach($chatServer as $k => $v)
-{
-  echo "<section class='channels'>";
-  echo sprintf("<h2>%s Server</h2>", $v->location);
-  echo "<ul>";
-  foreach ($v->xpath('.//channel') as $channel) {
-    echo sprintf("<li class='channel__name'><span class='channel-name'>Channel: %s </span>", $channel->name);
-    echo "<ul>";
-    foreach ($channel->xpath('.//chatroom') as $chatrooms => $chatroom) {
-      echo sprintf('<li><button class="roomList" type="button" value="%s">%s <div class="btnWrap"><span class="server-type">type: %s</span><span class="server-id">id: %s</span></button></div></li>', $chatroom->id, $chatroom->name, $chatroom->type, $chatroom->id);
+?>
+<div class="chatroom">
+  <div class="chatroom__list">
+    <?php
+    //load XML
+    $chatServer = simplexml_load_file("servers/chatroomserver.xml");
+    foreach($chatServer as $k => $v)
+    {
+      echo "<section class='channels'>";
+      echo sprintf("<h2>%s Server</h2>", $v->location);
+      echo "<ul>";
+      foreach ($v->xpath('.//channel') as $channel) {
+        echo sprintf("<li class='channel__name'><span class='channel-name'>Channel: %s </span>", $channel->name);
+        echo "<ul>";
+        foreach ($channel->xpath('.//chatroom') as $chatrooms => $chatroom)
+        {
+          echo "<li>";
+          echo "<form action='chatroom.php' method='post'>";
+          echo sprintf("<input type='hidden' value='%s' name='roomId'>", $chatroom->id);
+          echo sprintf("<input type='hidden' value='%s' name='roomName'>", $chatroom->name);
+          echo sprintf('<button class="roomList" type="submit"><span class="serverName">%s</span> <div class="btnWrap"><span class="server-type">type: %s</span><span class="server-id">id: %s</span></div></button>', $chatroom->name, $chatroom->type, $chatroom->id);
+          echo "</form>";
+          echo "</li>";
+        }
+        echo "</ul>";
+        echo "</li>";
+      }
+      echo "</ul>";
+      echo "</section>";
     }
-    echo "</ul>";
-    echo "</li>";
-  }
-  echo "</ul>";
-  echo "</section>";
-}
-
-// echo "<pre>";
-// var_dump($v);
-// echo "<pre>";
-// echo "<ul>";
-// echo sprintf("<li>%s</li>", $v->xpath('//name'));
-// echo "</ul>";
+    ?>
+  </div>
+</div>
+<?php require_once 'footer.php';?>

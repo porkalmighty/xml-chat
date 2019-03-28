@@ -1,15 +1,29 @@
 jQuery(document).ready(function(){
-  const chatlist = jQuery('.chatroom__list');
+  const sendBtn = jQuery('#sendBtn');
+  const chatWindow = jQuery('.chatInterface__window');
+  const chatArea = jQuery('#chatArea');
+  sendBtn.click(function(){
+    let chatMessage = jQuery('#chatArea').val();
+    let roomId = jQuery('#roomId').val();
+    let user = jQuery('#userName').val();
+    let userid = jQuery('#userId').val();
 
-  // load the chatroom via jquery post
-  jQuery.post("server.php", function(data){
-    chatlist.append(data);
-  })
+    // clear chat message box
+    chatArea.val("");
 
-  jQuery(document).on("click", '.roomList', function(){
-    const $serverId = jQuery(this).val();
-    const $serverName = jQuery(this).text();
-    alert('server: ' + $serverId + '\nserver name:' + $serverName);
+    var chatObjects = {
+      rId: roomId,
+      uname: user,
+      uId: userid,
+      message: chatMessage
+    };
+    // post message via jquery
+    jQuery.post("lib/send-message.php", chatObjects, function(chatmsg){
+      var res = JSON.parse(chatmsg);
+      // console.log(res);
+      // console.log(res["@attributes"]);
+      var chat = "<span class='chatmsg'>" + res["@attributes"].username + " : " + res[0] + "</span>";
+      chatWindow.append(chat);
+    });
   });
-
 });

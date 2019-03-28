@@ -1,56 +1,66 @@
 <?php
 require_once 'header.php';
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-$chatId = "can1002";
-$chatName = "Bachika";
-$path = sprintf("servers/chatrooms/%s.xml", $chatId);
-
-if(file_exists($path))
+$username = "JumpingSalad";
+$userId = 3;
+if(isset($_POST['roomId']) && isset($_POST['roomName']))
 {
-  $chatRoom = simplexml_load_file($path);
-}
-else
-{
-  // create the chat room
-  $doc = new DOMDocument('1.0', 'utf-8');
-  $doc->preserveWhiteSpace = false;
-  $doc->formatOutput = true;
+  $chatId = $_POST['roomId'];
+  $chatName = $_POST['roomName'];
+  $file = sprintf("servers/chatrooms/%s.xml", $chatId);
 
-  $root = $doc->createElement("chatrooms");
-  $chatroom = $doc->createElement("chatroom");
-  $id = $doc->createElement("id");
-  $name = $doc->createElement("name");
-  $messages = $doc->createElement("messages");
+  // check if the file exists
+  // create if it does not exist yet
 
-  // add values to elemets
-  $id->nodeValue = $chatId;
-  $name->nodeValue = $chatName;
-
-  // append the elements to root
-  $chatroom->appendChild($id);
-  $chatroom->appendChild($name);
-  $chatroom->appendChild($messages);
-  $root->appendChild($chatroom);
-  $doc->appendChild($root);
-
-  // save the xml
-  if($doc->save($path))
+  if(file_exists($file))
   {
-    $chatRoom = simplexml_load_file($path);
+    $chatRoom = simplexml_load_file($file);
   }
   else
   {
-    echo "failed";
+    $chatSettings = array(
+      "id" => $chatId,
+      "name" => $chatName,
+      "file" => $file
+    );
+
+    $newRoom = createChatroom($chatSettings);
+
+    if($newRoom)
+    {
+      $chatRoom = simplexml_load_file($file);
+    }
+    else
+    {
+      header("Location: index.php?err=404");
+    }
   }
 }
+else
+{
+  header("Location: index.php");
+}
 ?>
+<h1> You are in chatroom: <?= $chatName; ?></h1>
 <div class="chatInterface">
-  <div class="chatInterface__window"></div>
+  <div class="chatInterface__window">
+    <?php
+      // load messages
+      $messages = $chatRoom->xpath('//message');
+
+      foreach($messages as $message => $m)
+      {
+        echo sprintf("<span class='chatmsg'>%s : %s</span>", $m->attributes()->username, $m);
+      }
+
+    ?>
+  </div>
   <div class="chatInterface__controls">
-    <form class="chatbox" action="" method="post">
+    <form class="chatbox">
       <textarea name="chatArea" rows="8" cols="80" id="chatArea"></textarea>
-      <button type="submit" name="sendChat" id="sendBtn">Send</button>
+      <input type="hidden" id="roomId" value="<?= $chatId;?>">
+      <input type="hidden" id="userId" value="<?= $userId;?>">
+      <input type="hidden" id="userName" value="<?= $username;?>">
+      <button type="button" id="sendBtn">Send</button>
     </form>
   </div>
 </div>

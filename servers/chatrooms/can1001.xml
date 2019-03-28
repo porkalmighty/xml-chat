@@ -4,12 +4,8 @@
     <id>can1001</id>
     <name>Adai</name>
     <messages>
-      <message memberId="001">
-        Hello there, Dio!
-      </message>
-      <message memberId="002">
-        kuristiiinaaaaa
-      </message>
+      <message userid="1" username="PorkAlmighty">kuristiiinaaaaa!!!</message>
+      <message userid="2" username="InfestedPig">there's no -tina to it!!</message>
     </messages>
   </chatroom>
 </chatrooms>
