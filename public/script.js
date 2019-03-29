@@ -20,10 +20,12 @@ jQuery(document).ready(function(){
     // post message via jquery
     jQuery.post("lib/send-message.php", chatObjects, function(chatmsg){
       var res = JSON.parse(chatmsg);
-      // console.log(res);
-      // console.log(res["@attributes"]);
-      var chat = "<span class='chatmsg'>" + res["@attributes"].username + " : " + res[0] + "</span>";
-      chatWindow.append(chat);
+      console.log(res);
+      var chat = "";
+      jQuery.each(res, function(key, val){
+          chat += "<span class='chatmsg'>" + val.username + " : " + val.message + "</span>";
+      });
+      chatWindow.html(chat);
     });
   });
 });

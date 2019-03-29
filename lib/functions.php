@@ -19,9 +19,11 @@ function createChatroom($parameters)
   $messages = $doc->createElement("messages");
 
   // add values to elements
-  $cid = $doc->createTextNode($id);
-  $cname= $doc->createTextNode($name);
-
+  $cid_val = $doc->createTextNode($id);
+  $cname_val = $doc->createTextNode($name);
+  $cid->appendChild($cid_val);
+  $cname->appendChild($cname_val);
+  
   // append the elements to root
   $chatroom->appendChild($cid);
   $chatroom->appendChild($cname);
@@ -74,16 +76,4 @@ function createAccount($parameters)
   if($doc->save($file)) return true;
 
   return false;
-}
-
-function checkLogin()
-{
-  if(isset($_SESSION['user']) && isset($_SESSION['userid']))
-  {
-    header("Location: server.php");
-  }
-  else
-  {
-    header("Location: index.php");
-  }
 }

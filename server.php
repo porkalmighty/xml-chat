@@ -1,6 +1,10 @@
 <?php
+session_start();
 require_once 'header.php';
-echo sprintf("<h1>Welcome, %!</h1>", $_SESSION['user']);
+if(!isset($_SESSION) || empty($_SESSION)){
+    header('Location: index.php');
+}
+echo sprintf("<h1>Welcome, %s!</h1>", $_SESSION['user']);
 ?>
 <div class="chatroom">
   <div class="chatroom__list">
@@ -34,4 +38,12 @@ echo sprintf("<h1>Welcome, %!</h1>", $_SESSION['user']);
     ?>
   </div>
 </div>
-<?php require_once 'footer.php';?>
+<?php
+if(isset($_GET['err']))
+{
+    if($_GET['err'] == 404)
+    {
+        echo sprintf("<script>alert('Error loading chatroom, please try again');</script>");
+    }
+}
+require_once 'footer.php';?>

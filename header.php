@@ -1,5 +1,4 @@
 <?php
-session_start();
 require_once 'lib/functions.php';
 ?>
 <!DOCTYPE html>
@@ -17,8 +16,7 @@ require_once 'lib/functions.php';
         <nav id="nav">
           <ul>
             <li><a href="server.php">Server List</a></li>
-            <li><a href="lib/logout.php">Logout</a></li>
-
+            <li><a href="logout.php">Logout</a></li>
           </ul>
         </nav>
       </header>

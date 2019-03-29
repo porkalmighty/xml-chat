@@ -1,6 +1,7 @@
 <?php
-require_once 'functions.php';
 session_start();
+
+require_once 'lib/functions.php';
 if(isset($_POST['login']))
 {
   $username = trim($_POST['username']);
@@ -11,7 +12,8 @@ if(isset($_POST['login']))
   // sanitize the string
   // reference: https://www.php.net/manual/en/filter.filters.sanitize.php
   $name = filter_var($username, FILTER_SANITIZE_STRING);
-  $file = '../users.xml';
+
+  $file = 'users.xml';
   // check if user is registered
   $users = simplexml_load_file($file);
   $xpath = sprintf('//user[contains(username, "%s")]', $username);
@@ -20,14 +22,12 @@ if(isset($_POST['login']))
   //cast id to integer, and increment by 1
   $id = intval($id) + 1;
 
-
   if($user)
   {
     // if it exists, store it in session then redirect to servers.php
-    $_SESSION['user'] = $user[0]->username;
-    $_SESSION['userid'] = $user[0]->id;
-
-    header("Location: ../server.php");
+     $_SESSION['userid'] = intval($user[0]->id);
+     $_SESSION['user'] = (string)$user[0]->username;
+     header("Location: server.php");
   }
   else
   {
@@ -42,7 +42,7 @@ if(isset($_POST['login']))
     {
       $_SESSION['user'] = $name;
       $_SESSION['userid'] = $id;
+        header("Location: server.php");
     }
   }
-  checkLogin();
 }

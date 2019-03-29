@@ -1,4 +1,9 @@
 <?php
+session_start();
+
+if(!isset($_SESSION) || empty($_SESSION)){
+    header('Location: index.php');
+}
 require_once 'header.php';
 if(isset($_POST['roomId']) && isset($_POST['roomName']))
 {
@@ -31,7 +36,7 @@ if(isset($_POST['roomId']) && isset($_POST['roomName']))
     }
     else
     {
-      header("Location: index.php?err=404");
+      header("Location: server.php?err=404");
     }
   }
 }

@@ -38,9 +38,18 @@ $messages->appendChild($new_message);
 
 $doc->save($file);
 
-//get the last saved element from the xml
 $node = simplexml_load_file($file);
 // xpath last reference -> https://www.w3schools.com/xml/xpath_syntax.asp
 // xml tested on https://codebeautify.org/Xpath-Tester
-$lastItem = $node->xpath('//message[last()]')[0];
-echo json_encode($lastItem);
+$lastItem = $node->xpath('//message');
+$items = array();
+
+foreach($lastItem as $last)
+{
+    $items[] = array(
+        "username" => (string)$last->attributes()->username,
+        "message" => (string)$last[0]
+    );
+}
+
+echo json_encode($items);
