@@ -45,7 +45,7 @@ else
   header("Location: index.php");
 }
 ?>
-<h1> You are in chatroom: <?= $chatName; ?></h1>
+<h2> You are in chatroom: <?= $chatName; ?></h2>
 <div class="chatInterface">
   <div class="chatInterface__window">
     <?php
@@ -54,7 +54,15 @@ else
 
       foreach($messages as $message => $m)
       {
-        echo sprintf("<span class='chatmsg'>%s : %s</span>", $m->attributes()->username, $m);
+        echo "<div class='chat-bubble'>";
+        echo "<div class='chathead'>";
+        echo sprintf("<span class='chatuser'>%s:</span>", $m->attributes()->username);
+        echo sprintf("<span class='timestamp'>%s</span>", $m->timestamp);
+        echo "</div>";
+        echo "<div class='chatmsg'>";
+        echo sprintf("<span class='chatmsgtxt'>%s</span>", $m->text);
+        echo "</div>";
+        echo "</div>";
       }
 
     ?>

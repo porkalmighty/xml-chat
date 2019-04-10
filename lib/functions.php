@@ -23,7 +23,7 @@ function createChatroom($parameters)
   $cname_val = $doc->createTextNode($name);
   $cid->appendChild($cid_val);
   $cname->appendChild($cname_val);
-  
+
   // append the elements to root
   $chatroom->appendChild($cid);
   $chatroom->appendChild($cname);
@@ -42,6 +42,7 @@ function createAccount($parameters)
 {
   $id = $parameters["id"];
   $name = $parameters["name"];
+  $password = $parameters["pass"];
   $file = $parameters["file"];
 
   // create the chat room
@@ -57,6 +58,7 @@ function createAccount($parameters)
   $new_user = $doc->createElement("user");
   $uid = $doc->createElement("id");
   $uname = $doc->createElement("username");
+  $pass = $doc->createElement("password");
 
   // add values to elements
   $uid_val = $doc->createTextNode($id);
@@ -65,9 +67,13 @@ function createAccount($parameters)
   $uname_val = $doc->createTextNode($name);
   $uname->appendChild($uname_val);
 
+  $pass_val = $doc->createTextNode($password);
+  $pass->appendChild($pass_val);
+
   // append the elements to user
   $new_user->appendChild($uid);
   $new_user->appendChild($uname);
+  $new_user->appendChild($pass);
 
   //append to users
   $user_list->appendChild($new_user);

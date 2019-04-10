@@ -4,9 +4,14 @@
     <id>can1001</id>
     <name>Adai</name>
     <messages>
-      <message userid="1" username="PorkAlmighty">kuristiiinaaaaa!!!</message>
-      <message userid="2" username="InfestedPig">there's no -tina to it!!</message>
-      <message userid="6" username="Bl4astoise">rawr!</message>
+      <message userid="1" username="PorkAlmighty">
+        <text>Test 1 2</text>
+        <timestamp>Apr-09-2019 10:49:19 pm</timestamp>
+      </message>
+      <message userid="2" username="Christa">
+        <text>hello</text>
+        <timestamp>Apr-09-2019 11:48:56 pm</timestamp>
+      </message>
     </messages>
   </chatroom>
 </chatrooms>

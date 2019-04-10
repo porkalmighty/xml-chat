@@ -2,6 +2,13 @@ jQuery(document).ready(function(){
   const sendBtn = jQuery('#sendBtn');
   const chatWindow = jQuery('.chatInterface__window');
   const chatArea = jQuery('#chatArea');
+
+  // scroll to the latest message
+  // reference https://stackoverflow.com/questions/10503606/scroll-to-bottom-of-div-on-page-load-jquery/11551414#11551414
+  if(chatWindow.length){ // if the chat window element exists...
+    chatWindow.scrollTop(chatWindow[0].scrollHeight);
+  }
+
   sendBtn.click(function(){
     let chatMessage = jQuery('#chatArea').val();
     let roomId = jQuery('#roomId').val();
@@ -11,21 +18,52 @@ jQuery(document).ready(function(){
     // clear chat message box
     chatArea.val("");
 
-    var chatObjects = {
-      rId: roomId,
-      uname: user,
-      uId: userid,
-      message: chatMessage
-    };
-    // post message via jquery
-    jQuery.post("lib/send-message.php", chatObjects, function(chatmsg){
-      var res = JSON.parse(chatmsg);
-      console.log(res);
-      var chat = "";
-      jQuery.each(res, function(key, val){
-          chat += "<span class='chatmsg'>" + val.username + " : " + val.message + "</span>";
+    // check if the message is empty
+    if(chatMessage !== "")
+    {
+      var chatObjects = {
+        rId: roomId,
+        uname: user,
+        uId: userid,
+        message: chatMessage
+      };
+      // post message via jquery
+      jQuery.post("lib/send-message.php", chatObjects, function(chatmsg){
+        chatWindow.html(chatmsg);
+        // scroll to the latest message
+        // reference https://stackoverflow.com/questions/10503606/scroll-to-bottom-of-div-on-page-load-jquery/11551414#11551414
+        chatWindow.scrollTop(chatWindow[0].scrollHeight);
       });
-      chatWindow.html(chat);
-    });
+    }
   });
 });
+
+function onSignIn(googleUser) {
+  // Useful data for your client-side scripts:
+  var profile = googleUser.getBasicProfile();
+  var user = profile.getGivenName();
+  // The ID token you need to pass to your backend:
+  var id_token = googleUser.getAuthResponse().id_token;
+  if(id_token.length)
+  {
+    var auth2 = gapi.auth2.getAuthInstance();
+    jQuery.post("lib/google-login.php", {"username": user},function(data){
+      console.log(data);
+      if(data === "loggedin")
+      {
+        location.href = "server.php";
+      }else {
+        location.href = "index.php?login=failed";
+      }
+    });
+  }
+}
+
+// function signOut() {
+//   var auth2 = gapi.auth2.getAuthInstance();
+//   auth2.signOut().then(function () {
+//   });
+//   auth2.disconnect();
+//   jQuery.post("logout.php");
+//   // location.reload(true);
+// }

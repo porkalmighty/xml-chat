@@ -3,37 +3,11 @@
   <user>
     <id>1</id>
     <username>PorkAlmighty</username>
+    <password>$2y$10$q6zvDO2/W0Gg6PbeNvUngeK0I8Am3R18/QiocEsliwz5SzYjAnvAm</password>
   </user>
   <user>
     <id>2</id>
-    <username>InfestedPig</username>
-  </user>
-  <user>
-    <id>3</id>
-    <username>JumpingSalad</username>
-  </user>
-  <user>
-    <id>4</id>
-    <username>asdas_sada</username>
-  </user>
-  <user>
-    <id>5</id>
-    <username>bl4stoise</username>
-  </user>
-  <user>
-    <id>6</id>
-    <username>Bl4astoise</username>
-  </user>
-  <user>
-    <id>7</id>
-    <username>Bl4stoise</username>
-  </user>
-  <user>
-    <id>8</id>
-    <username>testuser</username>
-  </user>
-  <user>
-    <id>9</id>
-    <username>testuser1</username>
+    <username>Christa</username>
+    <password>$2y$10$WVtRZ9AMX1BfVF5/6xlF7e04CZ1gUC5SWe5auJyG9DAs0ZIFWHHEe</password>
   </user>
 </users>

@@ -3,12 +3,6 @@
   <chatroom>
     <id>can1002</id>
     <name>Bachika</name>
-    <messages>
-      <message userid="1" username="PorkAlmighty">eyyyy</message>
-      <message userid="1" username="PorkAlmighty">haaa</message>
-      <message userid="1" username="PorkAlmighty">aaaaaa</message>
-      <message userid="1" username="PorkAlmighty">asdasda</message>
-      <message userid="1" username="PorkAlmighty">adsada</message>
-    </messages>
+    <messages></messages>
   </chatroom>
 </chatrooms>
