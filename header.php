@@ -14,7 +14,7 @@ require_once 'lib/functions.php';
   <body>
     <header>
       <div id="logo">
-        <h1>Chat Room</h1>
+        <h1><span class="white">Chat</span> <span class="withbg inverted">Room</span></h1>
       </div>
       <nav id="nav">
         <?php if(isset($_SESSION['user']) && isset($_SESSION['userid']))

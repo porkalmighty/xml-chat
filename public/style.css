@@ -93,6 +93,16 @@ header {
   color: #272838;
 }
 
+.white {
+  color: #fff;
+}
+
+.withbg {
+  background: #f7b32b;
+  border-radius: 5px;
+  padding: 10px;
+}
+
 .group {
   margin-bottom: 5px;
 }
