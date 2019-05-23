@@ -36,6 +36,22 @@ jQuery(document).ready(function(){
       });
     }
   });
+
+  var refresh = setInterval(function(){
+    let roomId = jQuery('#roomId').val();
+    console.log('refreshing');
+        // check if the message is empty
+          var chatObjects = {
+            rId: roomId
+          };
+          // post message via jquery
+          jQuery.post("lib/refresh.php", chatObjects, function(chatmsg){
+            chatWindow.html(chatmsg);
+            // scroll to the latest message
+            // reference https://stackoverflow.com/questions/10503606/scroll-to-bottom-of-div-on-page-load-jquery/11551414#11551414
+            chatWindow.scrollTop(chatWindow[0].scrollHeight);
+          });
+    }, 500);
 });
 
 function onSignIn(googleUser) {

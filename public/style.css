@@ -98,9 +98,11 @@ header {
 }
 
 .withbg {
-  background: #f7b32b;
+  /* background: #f7b32b;
+  background: #fff; */
   border-radius: 5px;
   padding: 5px;
+  color: #fff;
 }
 
 .group {

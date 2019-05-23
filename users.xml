@@ -10,4 +10,19 @@
     <username>Christa</username>
     <password>$2y$10$WVtRZ9AMX1BfVF5/6xlF7e04CZ1gUC5SWe5auJyG9DAs0ZIFWHHEe</password>
   </user>
+  <user>
+    <id>2</id>
+    <username>porkalmighty</username>
+    <password>$2y$10$Q1IJ3HWs6I3lH2gd.L7a7.jj8N0L6/BWy2pttIBbwDBuskNSyj5La</password>
+  </user>
+  <user>
+    <id>2</id>
+    <username>mok0ng</username>
+    <password>$2y$10$yA7zMULXUF0B3LdOIivsIus0eEXlbVkJ0u4C1be4MfB9sb/y1Mfae</password>
+  </user>
+  <user>
+    <id>2</id>
+    <username>paffgen</username>
+    <password>$2y$10$bqCrbRgjCTpfvIJmE3.pROR00IHZr2xzf0Bh0M.bh79FxcDEeehWu</password>
+  </user>
 </users>
